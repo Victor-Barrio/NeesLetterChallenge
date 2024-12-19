@@ -1,0 +1,279 @@
+/* Starting CSS and doing the manual resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Importing the fonts */
+@font-face {
+  font-family: "Roboto Regular";
+  src: url(../assets/fonts/Roboto-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto Bold";
+  src: url(../assets/fonts/Roboto-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* General styles */
+body {
+  /* Colors */
+  /* Primary color */
+  --tomato: hsl(4, 100%, 67%);
+
+  /* Neutral color */
+  --white: hsl(0, 0%, 100%);
+  --darkSlateGrey: hsl(234, 29%, 20%);
+  --charcoalGrey: hsl(235, 18%, 26%);
+  --grey: hsl(231, 7%, 60%);
+  --pink: hsl(346, 99%, 66%);
+
+  /* Font Styles */
+  font-family: "Roboto Regular", sans-serif;
+  font-size: 16px;
+  color: var(--charcoalGrey);
+  line-height: 1.5;
+
+  /* Viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--charcoalGrey);
+}
+
+/* The principal container */
+.containerSignUp {
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: var(--white);
+  gap: 30px;
+}
+
+/* Showing the correct image */
+.image #mobile {
+  display: block;
+  width: 100vw;
+  height: auto;
+}
+
+.image #desktop {
+  display: none;
+}
+
+/* The text part */
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.text h1 {
+  color: var(--darkSlateGrey);
+  font-family: "Roboto Bold", sans-serif;
+  font-size: 40px;
+}
+
+.text ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0 15px 0;
+}
+
+.text ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.text ul li::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url(../assets/images/icon-success.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+/* The sign-up form */
+#signUp {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+#signUp label {
+  font-family: "Roboto Bold", sans-serif;
+  font-size: 12px;
+}
+
+#signUp input {
+  width: 100%;
+  padding: 15px 25px;
+  font-family: "Roboto Regular", sans-serif;
+  font-size: 16px;
+  color: var(--grey);
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+#signUp button {
+  width: 100%;
+  padding: 15px 0;
+  font-family: "Roboto Bold", sans-serif;
+  font-size: 16px;
+  color: var(--white);
+  background-color: var(--darkSlateGrey);
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+/* The Error message */
+#errorMessage {
+  display: none;
+  color: var(--tomato);
+  font-family: "Roboto Bold", sans-serif;
+  font-size: 12px;
+}
+
+/* The succes message */
+.containerSucces {
+  display: none;
+  grid-template-rows: 1fr auto;
+  padding: 35px 20px;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--white);
+}
+
+.containerSucces .succes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.containerSucces .succes img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.containerSucces .succes h2 {
+  font-family: "Roboto Bold", sans-serif;
+  font-size: 40px;
+  line-height: 1;
+}
+
+.containerSucces .succes #emailSent {
+  font-family: "Roboto Bold", sans-serif;
+}
+
+.containerSucces #closeSuccess {
+  width: 100%;
+  height: 60px;
+  font-family: "Roboto Bold", sans-serif;
+  font-size: 16px;
+  color: var(--white);
+  background-color: var(--darkSlateGrey);
+  border-radius: 8px;
+  border: none;
+  margin-top: 35px;
+}
+
+/* Media queries for the desktop version */
+@media (min-width: 1024px) {
+  /* The principal container */
+  .containerSignUp {
+    height: 640px;
+    width: 930px;
+    border-radius: 30px;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px;
+    background-color: var(--white);
+    gap: 45px;
+  }
+
+  /* Showing the correct image */
+  .image #mobile {
+    display: none;
+  }
+
+  .image #desktop {
+    display: block;
+    height: 100%;
+    width: auto;
+  }
+
+  /* The text part */
+  .text h1 {
+    color: var(--darkSlateGrey);
+    font-family: "Roboto Bold", sans-serif;
+    font-size: 56px;
+  }
+
+  /* The sign-up form */
+  #signUp input {
+    padding: 20px 25px;
+    cursor: pointer;
+  }
+
+  #signUp button {
+    padding: 20px 0;
+  }
+
+  #signUp button:hover,
+  .containerSucces #closeSuccess:hover {
+    background: linear-gradient(to right, var(--pink), var(--tomato));
+    box-shadow: 0 10px 40px var(--tomato);
+    cursor: pointer;
+  }
+
+  /* The succes message */
+  .containerSucces {
+    width: 500px;
+    height: 520px;
+    border-radius: 30px;
+    padding: 60px;
+  }
+
+  .containerSucces .succes {
+    gap: 20px;
+  }
+
+  .containerSucces .succes img {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 0px;
+  }
+
+  .containerSucces .succes h2 {
+    font-size: 57px;
+  }
+}
